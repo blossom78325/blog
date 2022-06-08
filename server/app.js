@@ -1,7 +1,13 @@
-import express from 'express';
+import express from "express";
+import mongoose from "mongoose";
+import config from "./config";
 
-const app = express()
+const app = express();
+const {MONGO_URI} = config;
 
-app.get('/')
+mongoose.connect(MONGO_URI)
+	.then(() => console.log("MongoDB connecting Success!!"))
+	.catch((e) => console.log({e}));
+app.get("/");
 
 export default app;
