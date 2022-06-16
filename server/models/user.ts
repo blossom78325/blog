@@ -1,8 +1,25 @@
 import mongoose from "mongoose";
 import moment from "moment";
 
+interface User {
+	name: string;
+	email: string;
+	password: string;
+	role?: string;
+	register_date?: Date;
+	comments: Comment[];
+	posts: mongoose.Schema.Types.ObjectId[]
+}
+
+interface Comment {
+	post_id: mongoose.Schema.Types.ObjectId;
+	comment_id: mongoose.Schema.Types.ObjectId;
+}
+
+
+
 // Create Schema
-const UserSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema<User>({
 	name: {
 		type: String,
 		required: true,
@@ -19,7 +36,7 @@ const UserSchema = new mongoose.Schema({
 	role: {
 		type: String,
 		enum: ["MainManager", "SubManager", "User"],
-		default: "User ",
+		default: "User",
 	},
 	register_date: {
 		type: Date,
