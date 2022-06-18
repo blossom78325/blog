@@ -76,8 +76,4 @@ router.post('/', async (req, res) => {
     }
 });
 
-const validate = () => {
-
-}
-
 export default router

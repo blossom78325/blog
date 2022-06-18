@@ -1,5 +1,7 @@
 import app from "./app";
+import {config} from "./config";
 
-app.listen("3000", () => {
-	console.log('App is listening');
+const {PORT} = config
+app.listen(PORT, () => {
+    console.log(`Server started oon Port ${PORT}`);
 })
