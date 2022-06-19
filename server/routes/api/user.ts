@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
 });
 
 // @routes POST api/user
-// @desc Register all user
+// @desc Register the user
 // @access public
 
 router.post('/', async (req, res) => {
